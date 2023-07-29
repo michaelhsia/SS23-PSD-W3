@@ -1,47 +1,44 @@
+*,*::before,*::after {
+    box-sizing: border-box;
+}
+
 body {
     line-height: 1.5;
     font-family: 'Noto Sans TC', 'Roboto', sans-serif;
 }
 
 .container {
-    max-width: 1320px;
-    padding-left: 12px;
-    padding-right: 12px;
+    /* 桌機 */
+    max-width: 1320px; /* 1296 + 24 gutter */
+    margin: 0 auto;
+    padding: 0 12px;
+    /* 平板 */
+    @media (max-width: 768px) {
+        max-width: 720px; /* 696 + 24 gutter */
+    }
+    /* 手機 */
+    @media (max-width: 375px) {
+        max-width: 372px; /* 348 + 24 gutter */
+    }
 }
 
-.logo {
-    display: block;
-    width: 80px;
-    height: 48px;
-    text-indent: 101%;
-    overflow: hidden;
-    white-space: nowrap;
-}
-
-.pd-y-3 {
-    padding-top: 12px;
-    padding-bottom: 12px;
-}
-
-/* flex */
-
-.d-flex {
-    display: flex;
-}
-
-.jcsb {
-    justify-content: space-between;
-}
-
-.aic {
-    align-items: center;
+a {
+    text-decoration: none;
 }
 
 
 /* font */
 
+.fz-14 {
+    font-size: 14px;
+}
+
 .fz-20 {
     font-size: 20px;
+}
+
+.fz-36 {
+    font-size: 36px;
 }
 
 .ft-wt {
@@ -55,23 +52,164 @@ body {
 
 /* header */
 
-.header h1 a{
+.navbar {
+    padding: 16px 0;
+    /* 去除手機版padding bottom */
+    @media (max-width: 768px) {
+        padding-bottom: 0;
+    }
+}
+
+.navbar-wrap {
+    display: flex;
+    justify-content: space-between;
+    /* 小於768轉成手機排版 */
+    @media (max-width: 768px) {
+        flex-direction: column;
+        /* 移除左右 padding 再加入 max-width: 100%; 讓導覽列能變為滿版 */
+        padding-left: 0;
+        padding-right: 0;
+        max-width: 100%;
+    }
+}
+
+.navbar-logo{
+    display: block;
+    width: 80px;
+    height: 48px;
     background-image: url(../image/logo-white.png);
     background-size: cover;
+    text-indent: 101%;
+    overflow: hidden;
+    white-space: nowrap;
+
+    @media (max-width: 768px) {
+        margin: 0 0 16px 16px;
+    }
 }
 
-.menu {
-    width: 39%;
+.navbar-nav {
+    display: flex;
+    align-items: center;
+
+    @media (max-width: 768px) {
+        flex-wrap: wrap;
+    }
 }
 
-.menu li {
-    width: 16%;
+.navbar-item {
+    height: 100%;
+
+    @media (max-width: 768px) {
+        width: 50%;
+        margin-right: 0;
+        border: 1px solid #ffffff;
+    }
 }
 
-.menu li a {
+.navbar-link {
+    height: 100%;
+    display: block;
+    font-size: 20px;
+    color: #ffffff;
     text-decoration: none;
+    padding: 8px 32px;
+
+
+    @media (max-width: 768px) {
+        font-size: 16px;
+        text-align: center;
+        padding: 12px 0;
+    }
 }
 
-.menu li a:hover {
-    color: #000000;
+.navbar-link:hover {
+    opacity: 0.7;
+}
+
+/* 移除navbar-link右邊padding，要下在a裡面因為左右間距是用a推出來的 */
+.navbar-item:last-child .navbar-link {
+    padding-right: 0;
+}
+
+
+.content {
+    height: 100px;
+}
+
+/* footer */
+
+.footer {
+    padding-top: 48px;
+    padding-bottom: 32px;
+}
+
+.footer-navwrap {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 32px;
+}
+
+/* 可在外層用margin:-24px或是指定.footer-nav最後一個li來把padding-left設定成0來抵銷gutter */
+.footer-nav {
+    display: flex;
+    margin-bottom: 33px;
+    margin-left: -24px;
+}
+
+/* .footer-nav li:first-child a {
+    padding-left: 0;
+} */
+
+.footer-nav li a {
+    display: block;
+    padding: 12px 24px;
+}
+
+.footer-contact li a {
+    display: flex;
+    align-items: center;
+}
+
+.mb-20 {
+    margin-bottom: 8px;
+}
+
+.footer-contact li a .mr-22 {
+    margin-right: 16px;
+}
+
+.footer-socialLink {
+    display: flex;
+}
+
+.footer-socialLink li a {
+    display: block;
+    width: 48px;
+    margin-right: 32px;
+}
+
+.footer-socialLink li:last-child a {
+    margin-right: 0;
+}
+
+.footer-policywrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 32px;
+    border-top: 1px solid #ffffff;
+}
+
+.policy-item {
+    display: flex;
+}
+
+.policy-item a {
+    display: block;
+    padding: 1px 14px;
+}
+
+.policy-item li:last-child a {
+    padding-right: 0;
 }
