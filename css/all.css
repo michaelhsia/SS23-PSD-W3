@@ -50,6 +50,13 @@ a {
 }
 
 
+/* margin */
+
+.mb-2 {
+    margin-bottom: 8px;
+}
+
+
 /* header */
 
 .navbar {
@@ -142,12 +149,24 @@ a {
 .footer {
     padding-top: 48px;
     padding-bottom: 32px;
+
+    @media (max-width: 768px) {
+        padding-bottom: 40px;
+    }
+
+    @media (max-width: 375px) {
+        padding: 24px 0;
+    }
 }
 
 .footer-navwrap {
     display: flex;
     justify-content: space-between;
     margin-bottom: 32px;
+
+    @media (max-width: 375px) {
+        margin-bottom: 24px;
+    }
 }
 
 /* 可在外層用margin:-24px或是指定.footer-nav最後一個li來把padding-left設定成0來抵銷gutter */
@@ -155,6 +174,10 @@ a {
     display: flex;
     margin-bottom: 33px;
     margin-left: -24px;
+
+    @media (max-width: 375px) {
+        display: none;
+    }
 }
 
 /* .footer-nav li:first-child a {
@@ -164,6 +187,11 @@ a {
 .footer-nav li a {
     display: block;
     padding: 12px 24px;
+
+    @media (max-width: 768px) {
+        padding: 8px 24px;
+    }
+
 }
 
 .footer-contact li a {
@@ -171,11 +199,13 @@ a {
     align-items: center;
 }
 
-.mb-20 {
-    margin-bottom: 8px;
+@media (max-width: 375px) {
+    .footer-contact a span {
+        font-size: 16px;
+    }
 }
 
-.footer-contact li a .mr-22 {
+.footer-contact li .mr-4 {
     margin-right: 16px;
 }
 
@@ -187,6 +217,16 @@ a {
     display: block;
     width: 48px;
     margin-right: 32px;
+
+    @media (max-width: 768px) {
+        width: 40px;
+        margin-right: 16px;
+    }
+
+    @media (max-width: 375px) {
+        width: 24px;
+        margin-right: 8px;
+    }
 }
 
 .footer-socialLink li:last-child a {
@@ -199,17 +239,38 @@ a {
     align-items: center;
     padding-top: 32px;
     border-top: 1px solid #ffffff;
+
+    @media (max-width: 375px) {
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: start;
+        padding-top: 16px;
+    }
 }
 
 .policy-item {
     display: flex;
+
+    @media (max-width: 375px) {
+        display: block;
+    }
 }
 
 .policy-item a {
     display: block;
-    padding: 1px 14px;
+    padding: 1px 24px;
+
+    @media (max-width: 375px) {
+        padding: 0;
+        font-size: 16px;
+        margin-top: 8px;
+    }
 }
 
 .policy-item li:last-child a {
     padding-right: 0;
+}
+
+.footer a:hover {
+    opacity: 0.7;
 }
