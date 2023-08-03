@@ -167,6 +167,16 @@ a {
     }
 }
 
+.footer-navbar-nav {
+    @media (max-width: 992px) {
+        width: calc(66.67% + 12px)
+    }
+
+    @media (max-width: 767px) {
+        width: 52%;
+    }
+}
+
 /* 可在外層用margin:-24px或是指定.footer-nav最後一個li來把padding-left設定成0來抵銷gutter */
 .footer-nav {
     display: flex;
@@ -216,6 +226,15 @@ a {
 
 .footer-socialLink {
     display: flex;
+    width: calc(16.67% + 12px)
+
+    @media (max-width: 992px) {
+        width: 25%;
+    }
+
+    @media (max-width: 767px) {
+        width: 30%;
+    }
 }
 
 .footer-socialLink li a {
